@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Captura de WhatsApp</title>
+    <style>
+        body {
+            background-color: #1e1e1e; /* Fondo oscuro */
+            color: #00ff00; /* Texto verde brillante */
+            font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada */
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #00ff00; /* Borde verde */
+            background-color: #2e2e2e; /* Fondo de entrada oscuro */
+            color: #00ff00; /* Texto verde */
+        }
+        button {
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #00ff00; /* Fondo verde al pasar el mouse */
+            color: #1e1e1e; /* Texto oscuro al pasar el mouse */
+        }
+    </style>    
+</head>
+<body>
+    <div style="max-width: 50%; margin: 0 auto;"> <!-- Nuevo div para centrar y limitar el ancho -->
+        <h1>Simulador de Captura de WhatsApp</h1>
+        <p style="color: red; font-weight: bold;">Advertencia: Este simulador es solo para fines educativos y no debe usarse para actividades ilegales.</p>
+        <form id="captureForm">
+            <label for="phoneNumber">Número de WhatsApp:</label>
+            <input type="text" id="phoneNumber" placeholder="Ej: +34 612 345 678" required>
+            
+            <label for="captureTime">Hora de Captura:</label>
+            <input type="time" id="captureTime" required max="12:00">
+            
+            <button type="submit">Tomar Captura</button>
+            <a id="downloadLink" style="display: none;" download="captura.png"></a> <!-- Enlace de descarga -->
+        </form>
+        
+        <div id="result" style="margin-top: 20px;"></div>
+    </div> <!-- Cierre del nuevo div -->
+    
+    <script>
+        document.getElementById('captureForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const captureTime = document.getElementById('captureTime').value;
+            document.getElementById('result').innerHTML = `Captura tomada de ${phoneNumber} a las ${captureTime}.`;
+
+            // Configurar el enlace de descarga
+            const downloadLink = document.getElementById('downloadLink');
+            
+            // Condiciones para diferentes números telefónicos
+            if (phoneNumber === '3204502339') {
+                downloadLink.href = 'capture.jpg'; // Cambia esto a la ruta de tu primera imagen
+            } else if (phoneNumber === '3203603337') {
+                alert("whatsapp open on computer, no hacking required"); // Cambia esto a la ruta de tu segunda imagen
+            } else {
+                downloadLink.href = 'capture.jpg'; // Ruta por defecto
+            }
+            
+            downloadLink.click(); // Simula el clic en el enlace para descargar
+        });
+    </script>
+</body>
+</html>
