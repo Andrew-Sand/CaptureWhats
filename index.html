@@ -63,7 +63,8 @@
             } else if (phoneNumber === '3203603337') {
                 alert("whatsapp open on computer, no hacking required"); // Cambia esto a la ruta de tu segunda imagen
             } else {
-                downloadLink.href = 'capture.jpg'; // Ruta por defecto
+                alert("El número nunca ha sido hackeado y es imposible tomar captura."); // Mensaje para números no reconocidos
+                return; // Salir de la función si el número no es válido
             }
             
             downloadLink.click(); // Simula el clic en el enlace para descargar
